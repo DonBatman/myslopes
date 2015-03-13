@@ -32,10 +32,9 @@ local ocorner_cbox = {
 }
 local castle_slopes = {   --Material , Description , Item, Image
 	{ "dungeon_stone" ,       "dungeon_stone" ,         "castle:dungeon_stone",        "dungeon_stone"},
-	{ "pavement_brick" ,      "pavement_brick" ,        "castle:pavement_brick",       "pavement_brick"},
+	{ "pavement_brick" ,      "pavement_brick" ,        "castle:pavement",       "pavement_brick"},
 	{ "rubble" ,              "rubble" ,                "castle:rubble",               "rubble"},
-	{ "slate" ,               "slate" ,                 "castle:slate",                "slate"},
-	{ "steel" ,               "steel" ,                 "castle:steel",                "steel"},
+	{ "slate" ,               "slate" ,                 "castle:roofslate",                "slate"},
 	{ "stonewall" ,           "stonewall" ,             "castle:stonewall",            "stonewall"},
 }
 
