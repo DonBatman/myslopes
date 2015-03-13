@@ -1,3 +1,23 @@
+local bat_slopes = {   --Material , Description , Item, Image
+	{ "bat_cobble" ,          "Bat Cobble" ,            "bat_blocks:bat_cobble",              "bat_cobble"},
+	{ "bat_cobble_white" ,    "Bat Cobble White" ,      "bat_blocks:bat_cobble_white",        "bat_cobble_white"},
+	{ "bat_cobble_tan" ,      "Bat Cobble Tan" ,        "bat_blocks:bat_cobble_tan",          "bat_cobble_tan"},
+	{ "bat_pavers" ,          "Bat Pavers" ,            "bat_blocks:bat_pavers",              "bat_pavers"},
+	{ "bat_block" ,           "Bat Block" ,             "bat_blocks:bat_block",               "bat_block"},
+	{ "bat_tile" ,            "Bat Tile" ,              "bat_blocks:bat_tile",                "bat_tile"},
+	{ "bat_diag" ,            "Bat Diag" ,              "bat_blocks:bat_diag",                "bat_diag"},
+	{ "bat_x_block" ,         "Bat X" ,                 "bat_blocks:bat_x",                   "bat_x_block"},
+	{ "bat_brick" ,           "Bat Brick" ,             "bat_blocks:bat_brick",               "bat_brick"},
+	{ "bat_smbrick" ,         "Bat Small Brick" ,       "bat_blocks:bat_smbrick",             "bat_smbrick"},
+}
+
+for i in ipairs(bat_slopes) do
+	local mat = bat_slopes[i][1]
+	local desc = bat_slopes[i][2]
+	local item = bat_slopes[i][3]
+	local img = bat_slopes[i][4]
+
+
 local slope_cbox = {
 	type = "fixed",
 	fixed = {
@@ -30,27 +50,7 @@ local ocorner_cbox = {
 		{-0.5,  0.25,  0.25, -0.25,   0.5, 0.5}
 	}
 }
-local slopes = {   --Material , Description , Image , Item
-	{ "default_glass" , "Glass" , "default_glass", "default:glass"},
-	{ "default_cobble" , "Cobble" , "default_cobble", "default:cobble"},
-	{ "default_stone" , "Stone" , "default_stone", "default:stone"},	
---	{ "default_cactus" , "Cactus" , "default_cactus_side", "default:cactus"},
---	{ "default_sand" , "Sand" , "default_sand", "default:sand"},
-	{ "default_sandstone" , "Sandstone " , "default_sandstone", "default:sandstone"},
---	{ "default_desert_sand" , "Desert Sand" , "default_desert_sand", "default:desert_sand"},
-	{ "default_desert_stone" , "Desert Stone" , "default_desert_stone", "default:desert_stone"},
-	{ "default_dirt" , "Dirt" , "default_dirt", "default:dirt"},
-	{ "default_gravel" , "Gravel" , "default_gravel", "default:gravel"},
---	{ "default_ice" , "Ice" , "default_ice", "default:ice"},
---	{ "default_snowblock" , "Snow Block" , "default_snow", "default:snowblock"},
---	{ "default_water_source" , "Water" , "default_water", "default:water_source"},
-}
 
-for i in ipairs(slopes) do
-	local mat = slopes[i][1]
-	local desc = slopes[i][2]
-	local img = slopes[i][3]
-	local item = slopes[i][4]
 
 --slope
 minetest.register_node("myslopes:"..mat.."_slope", {
@@ -198,6 +198,7 @@ minetest.register_craft({
 		{"", "",""},
 	}
 })
+--]]
 end
 
 

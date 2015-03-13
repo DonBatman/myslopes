@@ -1,3 +1,18 @@
+local castle_slopes = {   --Material , Description , Item, Image
+	{ "dungeon_stone" ,       "dungeon_stone" ,         "castle:dungeon_stone",        "dungeon_stone"},
+	{ "pavement_brick" ,      "pavement_brick" ,        "castle:pavement",       "pavement_brick"},
+	{ "rubble" ,              "rubble" ,                "castle:rubble",               "rubble"},
+	{ "slate" ,               "slate" ,                 "castle:roofslate",                "slate"},
+	{ "stonewall" ,           "stonewall" ,             "castle:stonewall",            "stonewall"},
+}
+
+for i in ipairs(castle_slopes) do
+	local mat = castle_slopes[i][1]
+	local desc = castle_slopes[i][2]
+	local item = castle_slopes[i][3]
+	local img = castle_slopes[i][4]
+
+
 local slope_cbox = {
 	type = "fixed",
 	fixed = {
@@ -30,19 +45,7 @@ local ocorner_cbox = {
 		{-0.5,  0.25,  0.25, -0.25,   0.5, 0.5}
 	}
 }
-local castle_slopes = {   --Material , Description , Item, Image
-	{ "dungeon_stone" ,       "dungeon_stone" ,         "castle:dungeon_stone",        "dungeon_stone"},
-	{ "pavement_brick" ,      "pavement_brick" ,        "castle:pavement",       "pavement_brick"},
-	{ "rubble" ,              "rubble" ,                "castle:rubble",               "rubble"},
-	{ "slate" ,               "slate" ,                 "castle:roofslate",                "slate"},
-	{ "stonewall" ,           "stonewall" ,             "castle:stonewall",            "stonewall"},
-}
 
-for i in ipairs(castle_slopes) do
-	local mat = castle_slopes[i][1]
-	local desc = castle_slopes[i][2]
-	local item = castle_slopes[i][3]
-	local img = castle_slopes[i][4]
 
 --slope
 minetest.register_node("myslopes:"..mat.."_slope", {
