@@ -11,13 +11,13 @@ local slope_cbox = {
 local icorner_cbox = {
 	type = "fixed",
 	fixed = {
-		{-0.5, -0.5, -0.5, 0.5, -0.25, 0.5}, -- NodeBox5
-		{-0.5, -0.5, -0.25, 0.5, 0, 0.5}, -- NodeBox6
-		{-0.5, -0.5, -0.5, 0.25, 0, 0.5}, -- NodeBox7
-		{-0.5, 0, -0.5, 0, 0.25, 0.5}, -- NodeBox8
-		{-0.5, 0, 0, 0.5, 0.25, 0.5}, -- NodeBox9
-		{-0.5, 0.25, 0.25, 0.5, 0.5, 0.5}, -- NodeBox10
-		{-0.5, 0.25, -0.5, -0.25, 0.5, 0.5}, -- NodeBox11
+		{-0.5, -0.5, -0.5, 0.5, -0.25, 0.5},
+		{-0.5, -0.5, -0.25, 0.5, 0, 0.5},
+		{-0.5, -0.5, -0.5, 0.25, 0, 0.5},
+		{-0.5, 0, -0.5, 0, 0.25, 0.5},
+		{-0.5, 0, 0, 0.5, 0.25, 0.5},
+		{-0.5, 0.25, 0.25, 0.5, 0.5, 0.5},
+		{-0.5, 0.25, -0.5, -0.25, 0.5, 0.5},
 	}
 }
 
@@ -91,52 +91,7 @@ minetest.register_node("myslopes:"..mat.."_ocorner", {
 	collision_box = ocorner_cbox,
 	selection_box = ocorner_cbox
 })
---[[
---rotated---------------------------------------------------------------
---slope
-minetest.register_node("myslopes:"..mat.."_slope_r", {
-	description = desc.." Slope Rotated",
-	drawtype = "mesh",
-	mesh = "twelve-twelve.obj",
-	tiles = {"moreblocks_"..img..".png^[transformR90"},
-	paramtype = "light",
-	paramtype2 = "facedir",
-	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
-	sounds = default.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node,
-	collision_box = slope_cbox,
-	selection_box = slope_cbox
-})
---icorner
-minetest.register_node("myslopes:"..mat.."_icorner_r", {
-	description = desc.." Slope Inside Corner Rotate",
-	drawtype = "mesh",
-	mesh = "twelve-twelve-ic.obj",
-	tiles = {"moreblocks_"..img..".png^[transformR90"},
-	paramtype = "light",
-	paramtype2 = "facedir",
-	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
-	sounds = default.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node,
-	collision_box = icorner_cbox,
-	selection_box = icorner_cbox
-})
---ocorner
-minetest.register_node("myslopes:"..mat.."_ocorner_r", {
-	description = desc.." Slope Outside Corner Rotated",
-	drawtype = "mesh",
-	mesh = "twelve-twelve-oc.obj",
-	tiles = {"moreblocks_"..img..".png^[transformR90"},
-	paramtype = "light",
-	paramtype2 = "facedir",
-	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
-	sounds = default.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node,
-	collision_box = ocorner_cbox,
-	selection_box = ocorner_cbox
-})
 
---]]
 --Crafts--------------------------------------------------------
 
 --slope

@@ -1,14 +1,14 @@
 local slope_cbox_long = {
 	type = "fixed",
 	fixed = {
-		{-0.5, -0.5,   -1.5,  0.5, -0.375, 0.5},  --  NodeBox1
-		{-0.5, -0.375, -1.25, 0.5, -0.25,  0.5},  --  NodeBox2
-		{-0.5, -0.25,  -1,    0.5, -0.125, 0.5},  --  NodeBox3
-		{-0.5, -0.125, -0.75, 0.5,  0,     0.5},  --  NodeBox4
-		{-0.5,  0,     -0.5,  0.5,  0.125, 0.5},  --  NodeBox5
-		{-0.5,  0.125, -0.25, 0.5,  0.25,  0.5},  --  NodeBox6
-		{-0.5,  0.25,   0,    0.5,  0.375, 0.5},  --  NodeBox7
-		{-0.5,  0.375,  0.25, 0.5,  0.5,   0.5},  --  NodeBox8
+		{-0.5, -0.5,   -1.5,  0.5, -0.375, 0.5},
+		{-0.5, -0.375, -1.25, 0.5, -0.25,  0.5},
+		{-0.5, -0.25,  -1,    0.5, -0.125, 0.5},
+		{-0.5, -0.125, -0.75, 0.5,  0,     0.5},
+		{-0.5,  0,     -0.5,  0.5,  0.125, 0.5},
+		{-0.5,  0.125, -0.25, 0.5,  0.25,  0.5},
+		{-0.5,  0.25,   0,    0.5,  0.375, 0.5},
+		{-0.5,  0.375,  0.25, 0.5,  0.5,   0.5},
 	}
 }
 
@@ -49,17 +49,11 @@ local ocorner_cbox_long = {
 
 local long_slopes = {   --Material , Description , Image , Item
 	{ "default_cobble" , "Cobble" , "default_cobble", "default:cobble"},
-	{ "default_stone" , "Stone" , "default_stone", "default:stone"},	
---	{ "default_cactus" , "Cactus" , "default_cactus_side", "default:cactus"},
---	{ "default_sand" , "Sand" , "default_sand", "default:sand"},
+	{ "default_stone" , "Stone" , "default_stone", "default:stone"},
 	{ "default_sandstone" , "Sandstone " , "default_sandstone", "default:sandstone"},
---	{ "default_desert_sand" , "Desert Sand" , "default_desert_sand", "default:desert_sand"},
 	{ "default_desert_stone" , "Desert Stone" , "default_desert_stone", "default:desert_stone"},
 	{ "default_dirt" , "Dirt" , "default_dirt", "default:dirt"},
 	{ "default_gravel" , "Gravel" , "default_gravel", "default:gravel"},
---	{ "default_ice" , "Ice" , "default_ice", "default:ice"},
---	{ "default_snowblock" , "Snow Block" , "default_snow", "default:snowblock"},
---	{ "default_water_source" , "Water" , "default_water", "default:water_source"},
 }
 
 for i in ipairs(long_slopes) do
@@ -113,54 +107,7 @@ minetest.register_node("myslopes:"..mat.."_long_ocorner", {
 	selection_box = ocorner_cbox_long
 })
 
---[[
---rotated---------------------------------------------------------------
 
---long slope
-minetest.register_node("myslopes:"..mat.."_slope_long_r", {
-	description = desc.." Slope Long Rotated",
-	drawtype = "mesh",
-	mesh = "six-twelve_slope.obj",
-	tiles = {img..".png^[transformR90"},
-	paramtype = "light",
-	paramtype2 = "facedir",
-	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
-	sounds = default.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node,
-	collision_box = slope_cbox_long,
-	selection_box = slope_cbox_long
-})
-
---Inside Corner Long
-minetest.register_node("myslopes:"..mat.."_long_icorner_r", {
-	description = desc.." Long Slope Inside Corner",
-	drawtype = "mesh",
-	mesh = "six-twelve_slope-ic.obj",
-	tiles = {img..".png^[transformR90"},
-	paramtype = "light",
-	paramtype2 = "facedir",
-	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
-	sounds = default.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node,
-	collision_box = icorner_cbox_long,
-	selection_box = icorner_cbox_long
-})
-
---Outside Corner Long
-minetest.register_node("myslopes:"..mat.."_long_ocorner_r", {
-	description = desc.." Long Slope Outside Corner",
-	drawtype = "mesh",
-	mesh = "six-twelve_slope-oc.obj",
-	tiles = {img..".png^[transformR90"},
-	paramtype = "light",
-	paramtype2 = "facedir",
-	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
-	sounds = default.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node,
-	collision_box = ocorner_cbox_long,
-	selection_box = ocorner_cbox_long
-})
---]]
 --Crafts--------------------------------------------------------
 
 --slope long
