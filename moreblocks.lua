@@ -41,6 +41,8 @@ local moreblocks_slopes = {   --Material , Description , Item, Image
 	{ "stone_tile" ,          "Stone Tile" ,           "moreblocks:stone_tile",          "stone_tile"},
 	{ "wood_tile_center" ,    "Wood Tile Center" ,     "moreblocks:wood_tile_center",    "wood_tile_center"},
 	{ "wood_tile_full" ,      "Wood Tile Full" ,       "moreblocks:wood_tile_full",      "wood_tile_full"},
+	{ "coal_glass" ,   "Coal Glass" ,    "moreblocks:coal_glass",   "coal_glass"},
+	{ "coal_checker" ,   "Coal Checker" ,    "moreblocks:coal_checker",   "coal_checker"},
 }
 
 for i in ipairs(moreblocks_slopes) do
