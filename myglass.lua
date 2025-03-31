@@ -30,44 +30,27 @@ local ocorner_cbox = {
 		{-0.5,  0.25,  0.25, -0.25,   0.5, 0.5}
 	}
 }
-local slopes = {   --Material , Description , Image , Item
-	{ "default_glass" , "Glass" , "default_glass", "default:glass"},
-	{ "default_cobble" , "Cobble" , "default_cobble", "default:cobble"},
-	
-	{ "default_stone" , "Stone" , "default_stone", "default:stone"},
-	{ "default_desert_stone" , "Desert Stone" , "default_desert_stone", "default:desert_stone"},
-	{ "default_desert_sandstone" , "Desert Sandstone " , "default_desert_sandstone", "default:desert_sandstone"},
-	{ "default_sandstone" , "Sandstone " , "default_sandstone", "default:sandstone"},
-	{ "default_silver_sandstone" , "Silver Sandstone " , "default_silver_sandstone", "default:silver_sandstone"},
-	
-	{ "default_stone_block" , "Stone Block" , "default_stone_block", "default:stone_block"},
-	{ "default_desert_stone_block" , "Desert Stone Block" , "default_desert_stone_block", "default:desert_stone_block"},
-	{ "default_sandstone_block" , "Sandstone Block" , "default_sandstone_block", "default:sandstone_block"},
-	{ "default_desert_sandstone_block" , "Desert Sand Stone Block" , "default_desert_sandstone_block", "default:desert_sandstone_block"},
-	{ "default_silver_sandstone_block" , "Silver Sand Stone Block" , "default_silver_sandstone_block", "default:silver_sandstone_block"},
-	
-	{ "default_stone_brick" , "Stone Brick" , "default_stone_brick", "default:stone_brick"},
-	{ "default_stone_brick" , "Stone Brick" , "default_stone_brick", "default:desert_stone_brick"},
-	{ "default_sandstone_brick" , "Sandstone Brick" , "default_sandstone_brick", "default:sandstone_brick"},
-	{ "default_desert_sandstone_brick" , "Desert Sandstone Brick" , "default_desert_sandstone_brick", "default:desert_sandstone_brick"},
-	{ "default_silver_sandstone_brick" , "Silver Sandstone Brick" , "default_silver_sandstone_brick", "default:silver_sandstone_brick"},
-	
-	{ "default_dirt" , "Dirt" , "default_dirt", "default:dirt"},
-	{ "default_gravel" , "Gravel" , "default_gravel", "default:gravel"},
+local myglass_slopes = {   --Material , Description , Item, Image
+	{ "myglass_black","Glass Black","myglass:myglass_black","black_framed"},
+	{ "myglass_yellow","Glass Yellow","myglass:myglass_yellow","yellow_framed"},
+	{ "myglass_white","Glass White","myglass:myglass_white","white_framed"},
+	{ "myglass_blue","Glass Blue","myglass:myglass_blue","blue_framed"},
+	{ "myglass_red","Glass Red","myglass:myglass_red","red_framed"},
+	{ "myglass_lime","Glass Lime","myglass:myglass_lime","lime_framed"},
 }
 
-for i in ipairs(slopes) do
-	local mat = slopes[i][1]
-	local desc = slopes[i][2]
-	local img = slopes[i][3]
-	local item = slopes[i][4]
+for i in ipairs(myglass_slopes) do
+	local mat = myglass_slopes[i][1]
+	local desc = myglass_slopes[i][2]
+	local item = myglass_slopes[i][3]
+	local img = myglass_slopes[i][4]
 
 --slope
 minetest.register_node("myslopes:"..mat.."_slope", {
 	description = desc.." Slope",
 	drawtype = "mesh",
 	mesh = "twelve-twelve.obj",
-	tiles = {img..".png"},
+	tiles = {"myglass_"..img..".png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
@@ -81,7 +64,7 @@ minetest.register_node("myslopes:"..mat.."_icorner", {
 	description = desc.." Slope Inside Corner",
 	drawtype = "mesh",
 	mesh = "twelve-twelve-ic.obj",
-	tiles = {img..".png"},
+	tiles = {"myglass_"..img..".png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
@@ -95,7 +78,7 @@ minetest.register_node("myslopes:"..mat.."_ocorner", {
 	description = desc.." Slope Outside Corner",
 	drawtype = "mesh",
 	mesh = "twelve-twelve-oc.obj",
-	tiles = {img..".png"},
+	tiles = {"myglass_"..img..".png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
@@ -163,6 +146,7 @@ minetest.register_craft({
 		{"", "",""},
 	}
 })
+--]]
 end
 
 

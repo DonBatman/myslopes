@@ -30,44 +30,35 @@ local ocorner_cbox = {
 		{-0.5,  0.25,  0.25, -0.25,   0.5, 0.5}
 	}
 }
-local slopes = {   --Material , Description , Image , Item
-	{ "default_glass" , "Glass" , "default_glass", "default:glass"},
-	{ "default_cobble" , "Cobble" , "default_cobble", "default:cobble"},
-	
-	{ "default_stone" , "Stone" , "default_stone", "default:stone"},
-	{ "default_desert_stone" , "Desert Stone" , "default_desert_stone", "default:desert_stone"},
-	{ "default_desert_sandstone" , "Desert Sandstone " , "default_desert_sandstone", "default:desert_sandstone"},
-	{ "default_sandstone" , "Sandstone " , "default_sandstone", "default:sandstone"},
-	{ "default_silver_sandstone" , "Silver Sandstone " , "default_silver_sandstone", "default:silver_sandstone"},
-	
-	{ "default_stone_block" , "Stone Block" , "default_stone_block", "default:stone_block"},
-	{ "default_desert_stone_block" , "Desert Stone Block" , "default_desert_stone_block", "default:desert_stone_block"},
-	{ "default_sandstone_block" , "Sandstone Block" , "default_sandstone_block", "default:sandstone_block"},
-	{ "default_desert_sandstone_block" , "Desert Sand Stone Block" , "default_desert_sandstone_block", "default:desert_sandstone_block"},
-	{ "default_silver_sandstone_block" , "Silver Sand Stone Block" , "default_silver_sandstone_block", "default:silver_sandstone_block"},
-	
-	{ "default_stone_brick" , "Stone Brick" , "default_stone_brick", "default:stone_brick"},
-	{ "default_stone_brick" , "Stone Brick" , "default_stone_brick", "default:desert_stone_brick"},
-	{ "default_sandstone_brick" , "Sandstone Brick" , "default_sandstone_brick", "default:sandstone_brick"},
-	{ "default_desert_sandstone_brick" , "Desert Sandstone Brick" , "default_desert_sandstone_brick", "default:desert_sandstone_brick"},
-	{ "default_silver_sandstone_brick" , "Silver Sandstone Brick" , "default_silver_sandstone_brick", "default:silver_sandstone_brick"},
-	
-	{ "default_dirt" , "Dirt" , "default_dirt", "default:dirt"},
-	{ "default_gravel" , "Gravel" , "default_gravel", "default:gravel"},
+local mycastle_slopes = {   --Material , Description , Item, Image
+	{ "concrete_block","Concrete Block","mycastle:concrete_block","bars"},
+	{ "grey_stone","Grey Stone","mycastle:grey_stone","grey_stone"},
+	{ "dark_stone","Dark Stone","mycastle:dark_stone","dark_stone"},
+	{ "red_stone","Red Stone","mycastle:red_stone","red_stone"},
+	{ "big_grey_stone","Big Grey Stone","mycastle:big_grey_stone","big_grey_stone"},
+	{ "big_dark_stone","Big Dark Stone","mycastle:big_dark_stone","big_dark_stone"},
+	{ "vred_stone","Big Red Stone","mycastle:big_red_stone","big_red_stone"},
+	{ "grey_brick","Grey Brick","mycastle:grey_brick","grey_brick"},
+	{ "dark_brick","Dark Brick","mycastle:dark_brick","dark_brick"},
+	{ "red_brick","Red Brick","mycastle:red_brick","red_brick"},
+	{ "checker_plate","Checker Plate","mycastle:checker_plate","checplate"},
+	{ "dark_cobble","Dark Cobble","mycastle:dark_cobble","dark_cobble"},
+	{ "tan_cobble","Tan Cobble","mycastle:tan_cobble","tan_cobble"},
+	{ "white_cobble","White Cobble","mycastle:white_cobble","white_cobble"},
 }
 
-for i in ipairs(slopes) do
-	local mat = slopes[i][1]
-	local desc = slopes[i][2]
-	local img = slopes[i][3]
-	local item = slopes[i][4]
+for i in ipairs(mycastle_slopes) do
+	local mat = mycastle_slopes[i][1]
+	local desc = mycastle_slopes[i][2]
+	local item = mycastle_slopes[i][3]
+	local img = mycastle_slopes[i][4]
 
 --slope
 minetest.register_node("myslopes:"..mat.."_slope", {
 	description = desc.." Slope",
 	drawtype = "mesh",
 	mesh = "twelve-twelve.obj",
-	tiles = {img..".png"},
+	tiles = {"mycastle_"..img..".png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
@@ -81,7 +72,7 @@ minetest.register_node("myslopes:"..mat.."_icorner", {
 	description = desc.." Slope Inside Corner",
 	drawtype = "mesh",
 	mesh = "twelve-twelve-ic.obj",
-	tiles = {img..".png"},
+	tiles = {"mycastle_"..img..".png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
@@ -95,7 +86,7 @@ minetest.register_node("myslopes:"..mat.."_ocorner", {
 	description = desc.." Slope Outside Corner",
 	drawtype = "mesh",
 	mesh = "twelve-twelve-oc.obj",
-	tiles = {img..".png"},
+	tiles = {"mycastle_"..img..".png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
@@ -163,6 +154,7 @@ minetest.register_craft({
 		{"", "",""},
 	}
 })
+--]]
 end
 
 

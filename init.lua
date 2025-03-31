@@ -3,27 +3,45 @@ dofile(minetest.get_modpath("myslopes").."/slopes.lua")
 dofile(minetest.get_modpath("myslopes").."/long_slopes.lua")
 
 
-local mod_moreblocks = minetest.get_modpath("moreblocks") 
-local mod_castle = minetest.get_modpath("castle")
-local mod_castles = minetest.get_modpath("castles")
-local mod_bat_blocks = minetest.get_modpath("bat_blocks")
-
-if mod_moreblocks then
+if minetest.get_modpath("moreblocks")  then
 	dofile(minetest.get_modpath("myslopes").."/moreblocks.lua")
-	
 	end
 
-if mod_castle then
+if minetest.get_modpath("castle") then
 	dofile(minetest.get_modpath("myslopes").."/castle.lua")
+	end
+
+if minetest.get_modpath("castles") then
+	dofile(minetest.get_modpath("myslopes").."/castles.lua")
 	
 	end
 
-if mod_castles then
-	dofile(minetest.get_modpath("myslopes").."/castle.lua")
+if minetest.get_modpath("bat_blocks") then
+	dofile(minetest.get_modpath("myslopes").."/bat_blocks.lua")
 	
 	end
 
-if mod_bat_blocks then
-	dofile(minetest.get_modpath("myslopes").."/batmod.lua")
+if minetest.get_modpath("mycastle") then
+	dofile(minetest.get_modpath("myslopes").."/mycastle.lua")
+	
+	end
+
+if minetest.get_modpath("mycobble") then
+	dofile(minetest.get_modpath("myslopes").."/mycobble.lua")
+	
+	end
+
+if minetest.get_modpath("my_door_wood") then
+	dofile(minetest.get_modpath("myslopes").."/mydoorwood.lua")
+	
+	end
+
+if minetest.get_modpath("myglass") then
+	dofile(minetest.get_modpath("myslopes").."/myglass.lua")
+	
+	end
+
+if minetest.get_modpath("mymulch") then
+	dofile(minetest.get_modpath("myslopes").."/mymulch.lua")
 	
 	end
