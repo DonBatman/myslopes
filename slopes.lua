@@ -31,7 +31,6 @@ local ocorner_cbox = {
 	}
 }
 local slopes = {   --Material , Description , Image , Item
-	{ "default_glass" , "Glass" , "default_glass", "default:glass"},
 	{ "default_cobble" , "Cobble" , "default_cobble", "default:cobble"},
 	
 	{ "default_stone" , "Stone" , "default_stone", "default:stone"},
@@ -70,7 +69,6 @@ minetest.register_node("myslopes:"..mat.."_slope", {
 	tiles = {img..".png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
-	use_texture_alpha = 'blend',
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node,
@@ -85,7 +83,6 @@ minetest.register_node("myslopes:"..mat.."_icorner", {
 	tiles = {img..".png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
-	use_texture_alpha = 'blend',
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node,
@@ -100,7 +97,6 @@ minetest.register_node("myslopes:"..mat.."_ocorner", {
 	tiles = {img..".png"},
 	paramtype = "light",
 	paramtype2 = "facedir",
-	use_texture_alpha = 'blend',
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node,
@@ -168,8 +164,96 @@ minetest.register_craft({
 })
 end
 
-
-
+--slope
+minetest.register_node("myslopes:default_glass_slope", {
+	description = "Glass Slope",
+	drawtype = "mesh",
+	mesh = "twelve-twelve.obj",
+	tiles = {"default_glass.png"},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	use_texture_alpha = 'blend',
+	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
+	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node,
+	collision_box = slope_cbox,
+	selection_box = slope_cbox
+})
+--icorner
+minetest.register_node("myslopes:default_glass_icorner", {
+	description = "Glass Slope Inside Corner",
+	drawtype = "mesh",
+	mesh = "twelve-twelve-ic.obj",
+	tiles = {"default_glass.png"},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	use_texture_alpha = 'blend',
+	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
+	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node,
+	collision_box = icorner_cbox,
+	selection_box = icorner_cbox
+})
+--ocorner
+minetest.register_node("myslopes:default_glass_ocorner", {
+	description = "Glass Slope Outside Corner",
+	drawtype = "mesh",
+	mesh = "twelve-twelve-oc.obj",
+	tiles = {"default_glass.png"},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	use_texture_alpha = 'blend',
+	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
+	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node,
+	collision_box = ocorner_cbox,
+	selection_box = ocorner_cbox
+})
+--slope
+minetest.register_node("myslopes:default_obsidian_glass_slope", {
+	description = "Obsidian Glass Slope",
+	drawtype = "mesh",
+	mesh = "twelve-twelve.obj",
+	tiles = {"default_obsidian_glass.png"},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	use_texture_alpha = 'blend',
+	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
+	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node,
+	collision_box = slope_cbox,
+	selection_box = slope_cbox
+})
+--icorner
+minetest.register_node("myslopes:default_obsidian_glass_icorner", {
+	description = "Obsidian Glass Slope Inside Corner",
+	drawtype = "mesh",
+	mesh = "twelve-twelve-ic.obj",
+	tiles = {"default_obsidian_glass.png"},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	use_texture_alpha = 'blend',
+	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
+	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node,
+	collision_box = icorner_cbox,
+	selection_box = icorner_cbox
+})
+--ocorner
+minetest.register_node("myslopes:default_obsidian_glass_ocorner", {
+	description = "Obsidian Glass Slope Outside Corner",
+	drawtype = "mesh",
+	mesh = "twelve-twelve-oc.obj",
+	tiles = {"default_obsidian_glass.png"},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	use_texture_alpha = 'blend',
+	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
+	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node,
+	collision_box = ocorner_cbox,
+	selection_box = ocorner_cbox
+})
 
 
 
