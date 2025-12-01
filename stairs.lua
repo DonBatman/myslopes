@@ -1,29 +1,4 @@
-mywhiteblock = {}
-
-local stairs = core.settings:get_bool("mywhiteblock.stairs", true)
-local fences = core.settings:get_bool("mywhiteblock.fences", true)
-local walls = core.settings:get_bool("mywhiteblock.walls", true)
-if fences then
-dofile(core.get_modpath("mywhiteblock").."/fence.lua")
-end
-if stairs then
-dofile(core.get_modpath("mywhiteblock").."/stairs.lua")
-end
-if walls then
-dofile(core.get_modpath("mywhiteblock").."/walls.lua")
-end
-
-
-core.register_node("mywhiteblock:block", {
-	description = "White Block",
-	tiles = {"mywhiteblock_white.png"},
-	is_ground_content = false,
-	groups = {choppy = 2, oddly_breakable_by_hand = 2,cracky = 2},
-	sounds = default.node_sound_wood_defaults(),
-})
-mywhiteblock = {}
-
-mywhiteblock.colors = {
+local block_table = {
 	{"black",      "Black",      "#000000"},
 	{"blue",       "Blue",       "#2000c9"},
 	{"brown",      "Brown",      "#954c05"},
@@ -40,9 +15,9 @@ mywhiteblock.colors = {
 	{"white",      "White",      "#ffffff"},
 	{"yellow",     "Yellow",     "#e3ff00"},
 }
-
+		
 if core.get_modpath("mydye") then
-	mywhiteblock.colors = {
+	block_table = {
 	{"black",      	"Black",      		"#000000"},
 	{"blue",       	"Blue",       		"#2000c9"},
 	{"brown",     	"Brown",      		"#954c05"},
@@ -76,35 +51,38 @@ if core.get_modpath("mydye") then
 	{"orchid",		"Orchid", 			"#DA70D6"},
 	}
 end
-
 local paintables = {
-	"mywhiteblock:block"
+	"stairs:slab_mywhiteblock:block"
 }
 
-for _, entry in ipairs(mywhiteblock.colors) do
-	local color = entry[1]
-	local desc = entry[2]
-	local paint = "^[colorize:"..entry[3]
-core.register_node("mywhiteblock:block_" .. color, {
-	description = desc .. " Block",
-	tiles = {"mywhiteblock_white.png".. paint},
-	is_ground_content = false,
-	groups = {choppy = 2, oddly_breakable_by_hand = 2,cracky = 2, not_in_creative_inventory=1},
-	sounds = default.node_sound_wood_defaults(),
-})
+
+for i in ipairs(block_table) do
+	local mat = block_table[i][1]
+	local des = block_table[i][2]
+	local img = block_table[i][3]
 
 
+
+stairs.register_stair_and_slab("mywhiteblock:block_"..mat,
+			"mywhiteblock:block_"..mat, 
+			{cracky=2}, 
+			{"mywhiteblock_white.png^[colorize:"..img},
+			des.." Stairs", 
+			des.." Slab", 
+			default.node_sound_wood_defaults(), 
+			"mywhiteblock_white.png^[colorize:"..img,
+			des.." Inner Stairs", 
+			des.." Outer Stairs")
 end
+
+stairs.register_stair_and_slab("mywhiteblock:block", "mywhiteblock:block", {cracky=2}, {"mywhiteblock_white.png"},
+		"White Stairs", "White Slab", default.node_sound_wood_defaults(), "mywhiteblock_white.png",
+		"White Inner Stairs", "White Outer Stairs")
+
 if core.get_modpath("mypaint") then
 local colors = {}
-for _, entry in ipairs(mywhiteblock.colors) do
+for _, entry in ipairs(block_table) do
 	table.insert(colors, entry[1])
 end
 	mypaint.register(paintables, colors)
 end
-
-core.register_craft({
-	type = "shapeless",
-	output = "mywhiteblock:block 1",
-	recipe = {"default:dirt","dye:white"},
-})

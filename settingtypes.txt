@@ -1,0 +1,6 @@
+
+#Enable the double tap sprint
+mywhiteblock.stairs(Enable for stairs) bool true
+mywhiteblock.fences(Enable for fences) bool true
+mywhiteblock.walls(Enable for walls) bool true
+
