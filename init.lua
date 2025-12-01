@@ -1,110 +1,66 @@
-mywhiteblock = {}
+myslopes = {}
+local moreblocks = core.settings:get_bool("myslopes.moreblocks", true)
+local castle = core.settings:get_bool("myslopes.castle", true)
+local castles = core.settings:get_bool("myslopes.castles", true)
+local batmod = core.settings:get_bool("myslopes.batmod", true)
+local mycastle = core.settings:get_bool("myslopes.mycastle", true)
+local my_door_wood = core.settings:get_bool("myslopes.my_door_wood", true)
+local myglass = core.settings:get_bool("myslopes.myglass", true)
+local mymulch = core.settings:get_bool("myslopes.mymulch", true)
+local mywhiteblock = core.settings:get_bool("myslopes.mywhiteblock", true)
 
-local stairs = core.settings:get_bool("mywhiteblock.stairs", true)
-local fences = core.settings:get_bool("mywhiteblock.fences", true)
-local walls = core.settings:get_bool("mywhiteblock.walls", true)
-if fences then
-dofile(core.get_modpath("mywhiteblock").."/fence.lua")
+dofile(core.get_modpath("myslopes").."/slopes.lua")
+dofile(core.get_modpath("myslopes").."/long_slopes.lua")
+dofile(core.get_modpath("myslopes").."/long_slopes3.lua")
+dofile(core.get_modpath("myslopes").."/long_slopes4.lua")
+
+if moreblocks then
+	if core.get_modpath("moreblocks")  then
+		dofile(core.get_modpath("myslopes").."/moreblocks.lua")
+	end
 end
-if stairs then
-dofile(core.get_modpath("mywhiteblock").."/stairs.lua")
+if castle then
+	if core.get_modpath("castle") then
+		dofile(core.get_modpath("myslopes").."/castle.lua")
+	end
 end
-if walls then
-dofile(core.get_modpath("mywhiteblock").."/walls.lua")
+if castles then
+	if core.get_modpath("castles") then
+		dofile(core.get_modpath("myslopes").."/castles.lua")
+	end
 end
-
-
-core.register_node("mywhiteblock:block", {
-	description = "White Block",
-	tiles = {"mywhiteblock_white.png"},
-	is_ground_content = false,
-	groups = {choppy = 2, oddly_breakable_by_hand = 2,cracky = 2},
-	sounds = default.node_sound_wood_defaults(),
-})
-mywhiteblock = {}
-
-mywhiteblock.colors = {
-	{"black",      "Black",      "#000000"},
-	{"blue",       "Blue",       "#2000c9"},
-	{"brown",      "Brown",      "#954c05"},
-	{"cyan",       "Cyan",       "#01ffd8"},
-	{"darkgreen", "Dark Green",  "#005b07"},
-	{"darkgrey",  "Dark Grey",   "#303030"},
-	{"green",      "Green",      "#61ff01"},
-	{"grey",       "Grey",       "#5b5b5b"},
-	{"magenta",    "Magenta",    "#ff05bb"},
-	{"orange",     "Orange",     "#ff8401"},
-	{"pink",       "Pink",       "#ff65b5"},
-	{"red",        "Red",        "#ff0000"},
-	{"violet",     "Violet",     "#ab23b0"},
-	{"white",      "White",      "#ffffff"},
-	{"yellow",     "Yellow",     "#e3ff00"},
-}
-
-if core.get_modpath("mydye") then
-	mywhiteblock.colors = {
-	{"black",      	"Black",      		"#000000"},
-	{"blue",       	"Blue",       		"#2000c9"},
-	{"brown",     	"Brown",      		"#954c05"},
-	{"cyan",      	"Cyan",       		"#01ffd8"},
-	{"darkgreen", 	"Dark Green",  		"#005b07"},
-	{"darkgrey",  	"Dark Grey",   		"#303030"},
-	{"green",     	"Green",      		"#61ff01"},
-	{"grey",       	"Grey",       		"#5b5b5b"},
-	{"magenta",    	"Magenta",    		"#ff05bb"},
-	{"orange",     	"Orange",     		"#ff8401"},
-	{"pink",      	"Pink",       		"#ff65b5"},
-	{"red",        	"Red",        		"#ff0000"},
-	{"violet",     	"Violet",     		"#ab23b0"},
-	{"white",      	"White",      		"#ffffff"},
-	{"yellow",     	"Yellow",     		"#e3ff00"},
-	{"peachpuff",	"Peachpuff", 		"#FFDAB9"},
-	{"navy",		"Navy", 			"#000080"},
-	{"coral",		"Coral", 			"#FF7F50"},
-	{"khaki",		"Khaki", 			"#F0E68C"},
-	{"lime",		"Lime", 			"#00FF00"},
-	{"light_pink",	"Light Pink", 		"#FFB6C1"},
-	{"light_grey",	"Light Grey", 		"#D3D3D3"},
-	{"purple",		"Purple", 			"#800080"},
-	{"maroon",		"Maroon", 			"#800000"},
-	{"aquamarine",	"Aqua Marine", 		"#7FFFD4"},
-	{"chocolate",	"Chocolate", 		"#D2691E"},
-	{"crimson",		"Crimson", 			"#DC143C"},
-	{"olive",		"Olive", 			"#808000"},
-	{"white_smoke",	"White Smoke", 		"#F5F5F5"},
-	{"mistyrose",	"Misty Rose", 		"#FFE4E1"},
-	{"orchid",		"Orchid", 			"#DA70D6"},
-	}
+if batmod then
+	if core.get_modpath("batmod") then
+		dofile(core.get_modpath("myslopes").."/bat_blocks.lua")
+	end
 end
-
-local paintables = {
-	"mywhiteblock:block"
-}
-
-for _, entry in ipairs(mywhiteblock.colors) do
-	local color = entry[1]
-	local desc = entry[2]
-	local paint = "^[colorize:"..entry[3]
-core.register_node("mywhiteblock:block_" .. color, {
-	description = desc .. " Block",
-	tiles = {"mywhiteblock_white.png".. paint},
-	is_ground_content = false,
-	groups = {choppy = 2, oddly_breakable_by_hand = 2,cracky = 2, not_in_creative_inventory=1},
-	sounds = default.node_sound_wood_defaults(),
-})
-
-
+if mycastle then
+	if core.get_modpath("mycastle") then
+		dofile(core.get_modpath("myslopes").."/mycastle.lua")
+	end
 end
-if core.get_modpath("mypaint") then
-local colors = {}
-for _, entry in ipairs(mywhiteblock.colors) do
-	table.insert(colors, entry[1])
+if mycobble then
+	if core.get_modpath("mycobble") then
+		dofile(core.get_modpath("myslopes").."/mycobble.lua")
+	end
 end
-	mypaint.register(paintables, colors)
+if my_door_wood then
+	if core.get_modpath("my_door_wood") then
+		dofile(core.get_modpath("myslopes").."/mydoorwood.lua")
+	end
 end
-
-core.register_craft({
-	type = "shapeless",
-	output = "mywhiteblock:block 1",
-	recipe = {"default:dirt","dye:white"},
-})
+if myglass then
+	if core.get_modpath("myglass") then
+		dofile(core.get_modpath("myslopes").."/myglass.lua")
+	end
+end
+if mymulch then
+	if core.get_modpath("mymulch") then
+		dofile(core.get_modpath("myslopes").."/mymulch.lua")
+	end
+end
+if mywhiteblock then
+	if core.get_modpath("mywhiteblock") then
+		dofile(core.get_modpath("myslopes").."/mywhiteblock.lua")
+	end
+end

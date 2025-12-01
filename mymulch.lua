@@ -55,7 +55,7 @@ for i in ipairs(mymulch_slopes) do
 	local img = mymulch_slopes[i][4]
 
 --slope
-minetest.register_node("myslopes:"..mat.."_slope", {
+core.register_node("myslopes:"..mat.."_slope", {
 	description = desc.." Slope",
 	drawtype = "mesh",
 	mesh = "twelve-twelve.obj",
@@ -64,12 +64,12 @@ minetest.register_node("myslopes:"..mat.."_slope", {
 	paramtype2 = "facedir",
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
 	sounds = default.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node,
+	on_place = core.rotate_node,
 	collision_box = slope_cbox,
 	selection_box = slope_cbox
 })
 --icorner
-minetest.register_node("myslopes:"..mat.."_icorner", {
+core.register_node("myslopes:"..mat.."_icorner", {
 	description = desc.." Slope Inside Corner",
 	drawtype = "mesh",
 	mesh = "twelve-twelve-ic.obj",
@@ -78,12 +78,12 @@ minetest.register_node("myslopes:"..mat.."_icorner", {
 	paramtype2 = "facedir",
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
 	sounds = default.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node,
+	on_place = core.rotate_node,
 	collision_box = icorner_cbox,
 	selection_box = icorner_cbox
 })
 --ocorner
-minetest.register_node("myslopes:"..mat.."_ocorner", {
+core.register_node("myslopes:"..mat.."_ocorner", {
 	description = desc.." Slope Outside Corner",
 	drawtype = "mesh",
 	mesh = "twelve-twelve-oc.obj",
@@ -92,7 +92,7 @@ minetest.register_node("myslopes:"..mat.."_ocorner", {
 	paramtype2 = "facedir",
 	groups = {choppy=2, oddly_breakable_by_hand=2, flammable=3},
 	sounds = default.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node,
+	on_place = core.rotate_node,
 	collision_box = ocorner_cbox,
 	selection_box = ocorner_cbox
 })
@@ -100,7 +100,7 @@ minetest.register_node("myslopes:"..mat.."_ocorner", {
 --Crafts--------------------------------------------------------
 
 --slope
-minetest.register_craft({
+core.register_craft({
 	output = "myslopes:"..mat.."_slope 3",
 	recipe = {
 		{"", "",""},
@@ -109,7 +109,7 @@ minetest.register_craft({
 	}
 })
 --slope icorner
-minetest.register_craft({
+core.register_craft({
 	output = "myslopes:"..mat.."_icorner 3",
 	recipe = {
 		{"", "",""},
@@ -118,7 +118,7 @@ minetest.register_craft({
 	}
 })
 --slope ocorner
-minetest.register_craft({
+core.register_craft({
 	output = "myslopes:"..mat.."_ocorner 3",
 	recipe = {
 		{"", "",""},
@@ -129,7 +129,7 @@ minetest.register_craft({
 
 --rotated-----------------------------------------------
 --slope
-minetest.register_craft({
+core.register_craft({
 	output = "myslopes:"..mat.."_slope_r 1",
 	recipe = {
 		{"", "",""},
@@ -138,7 +138,7 @@ minetest.register_craft({
 	}
 })
 --slope icorner
-minetest.register_craft({
+core.register_craft({
 	output = "myslopes:"..mat.."_icorner_r 1",
 	recipe = {
 		{"", "",""},
@@ -147,7 +147,7 @@ minetest.register_craft({
 	}
 })
 --slope ocorner
-minetest.register_craft({
+core.register_craft({
 	output = "myslopes:"..mat.."_ocorner_r 1",
 	recipe = {
 		{"", "",""},

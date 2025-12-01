@@ -1,6 +1,11 @@
 
-#Enable the double tap sprint
-mywhiteblock.stairs(Enable for stairs) bool true
-mywhiteblock.fences(Enable for fences) bool true
-mywhiteblock.walls(Enable for walls) bool true
+#Enable colored blocks
+myslopes.moreblocks(Enable moreblocks) bool true
+myslopes.castle(Enable castle) bool true
+myslopes.castles(Enable castles) bool true
+myslopes.batmod(Enable batmod) bool true
+myslopes.my_door_wood(Enable my door wood) bool true
+myslopes.myglass(Enable myglass) bool true
+myslopes.mymulch(Enable mymulch) bool true
+myslopes.mywhiteblock(Enable mywhiteblock) bool true
 
